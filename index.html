@@ -85,6 +85,69 @@
             color: var(--primary);
         }
 
+        .lang-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-dropbtn {
+            background: transparent;
+            border: 1px solid var(--text-sub);
+            color: var(--text-sub);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-family: var(--font-en);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-dropbtn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .lang-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #0f172a;
+            min-width: 140px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 0;
+            overflow: hidden;
+        }
+
+        .lang-dropdown-content a {
+            color: var(--text-sub);
+            padding: 0.7rem 1.2rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            font-family: var(--font-en);
+            transition: background-color 0.2s;
+        }
+
+        .lang-dropdown-content a:hover {
+            background-color: rgba(96, 165, 250, 0.2);
+            color: var(--text-main);
+        }
+        
+        .lang-dropdown-content a.active {
+            color: var(--primary);
+            background-color: rgba(96, 165, 250, 0.1);
+        }
+
+        .lang-dropdown:hover .lang-dropdown-content {
+            display: block;
+        }
+
         #slider-container {
             display: flex;
             width: 100vw;
@@ -358,9 +421,24 @@
     <header>
         <div style="font-size: 1.2rem; letter-spacing: 0.05em; color: var(--text-sub); font-family: var(--font-en);">
             Island.io GTM Strategy</div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="ja">日本語</button>
-            <button class="lang-btn" data-lang="en">English</button>
+        <div class="lang-dropdown">
+            <button class="lang-dropbtn">
+                <span id="selected-lang-text">日本語</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.7;">
+                    <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div class="lang-dropdown-content">
+                <a href="#" class="lang-btn active" data-lang="ja">日本語</a>
+                <a href="#" class="lang-btn" data-lang="en">English</a>
+                <a href="#" class="lang-btn" data-lang="zh">中文</a>
+                <a href="#" class="lang-btn" data-lang="ko">한국어</a>
+                <a href="#" class="lang-btn" data-lang="fr">Français</a>
+                <a href="#" class="lang-btn" data-lang="ru">Русский</a>
+                <a href="#" class="lang-btn" data-lang="de">Deutsch</a>
+                <a href="#" class="lang-btn" data-lang="it">Italiano</a>
+            </div>
         </div>
     </header>
 
@@ -470,7 +548,139 @@
                 s14_title: "Final Investment Comparison", s14_content: "[Status Quo] vs [Island]<br>・3-Year TCO: <span class='number-alert'>588M JPY</span> vs <span class='number-secondary'>113M JPY</span><br>・AI Utilization: Prohibited vs Company-wide<br>・Security: Defenseless vs <span class='number-secondary'>85%</span> reduction<br>・ROI: Negative vs <span class='number-secondary'>+457%</span>",
                 s15_title: "Next Steps: What You Can Start Today", s15_content: "<span class='safe-zone'>・Start a 30-day Free PoC</span><br>・Create a Detailed ROI Comparison Sheet",
                 s16_title: "Contact Information", s16_content: "Analysis & Supervision: January 11, 2026"
-            }
+            },
+            zh: { // Chinese
+                meta_title: "Island.io 执行简报", chat_title: "Island 战略助理", chat_placeholder: "请提出任何有关演示文稿的问题。",
+                s1_title: "将 IT 预算从防御性固定成本转变为进攻性增长投资", s1_content: "Island.io 执行简报 [2026 年 1 月修订版：美元/日元 156.80]<br>目标：首席执行官、首席财务官、首席信息官、首席信息安全官、首席数据分析官<br>2026 年 1 月 11 日",
+                s2_title: "执行摘要", s2_content: "・实现每年 <span class='number-secondary'>1.65 亿日元</span> 的成本削减和 <span class='number-secondary'>4 个月</span> 的投资回收期。<br>・预计 3 年内投资回报率为 <span class='number-secondary'>457%</span>，净利润约为 5.2 亿日元。<br>・将数据泄露风险降低 <span class='number-secondary'>85%</span>，并消除汇率波动风险。<br>・通过人工智能为每年 <span class='number-primary'>12 亿日元</span> 的生产力提升做出贡献。",
+                s3_title: "议程：2026 年管理挑战与解决方案", s3_content: "1. 日元疲软和价格上涨<br>2. VDI 的局限性<br>3. Island.io：安全工作区<br>4. 投资回报率 457%<br>5. 人工智能革命<br>6. 数据主权<br>7. 后量子准备<br>8. 后续步骤",
+                s4_title: "日元疲软和价格上涨的双重负担", s4_content: "对边界防御和 VDI 的投资直接受到汇率影响，每年达到约 <span class='number-alert'>2.6 亿日元</span>。<br><br>总计：约 <span class='number-alert'>2.57 亿日元</span><br>・VDI：1.96 亿日元 (76%)<br>・SASE：4700 万日元 (18%)<br>・防火墙/VPN：1400 万日元 (6%)",
+                s5_title: "投资与风险的致命错配", s5_content: "实际数据泄露中有 <span class='number-alert'>83%</span> 绕过了昂贵的网络防御，通过网络浏览器发生。<br><br>・网络：投资 6100 万日元 / 泄露率 17%<br>・VDI：投资 1.96 亿日元 / 泄露率 0%<br>・浏览器：投资 0 日元 / 泄露率 <span class='number-alert'>83%</span>",
+                s6_title: "VDI：不可持续的“债务”", s6_content: "VDI 成本明细（3 年/1,000 用户）<br>・许可证：9800 万日元/年（3 年：2.94 亿）<br>・基础设施：7800 万日元/年（3 年：2.34 亿）<br>・运营：2000 万日元/年（3 年：6000 万）<br>总计：<span class='number-alert'>1.96 亿日元/年</span>（3 年：5.88 亿日元）",
+                s7_title: "Island.io：浏览器即安全工作区", s7_sub: "从屏幕传输 (VDI) 到浏览器管理。摒弃笨重/昂贵的系统，采用轻便、廉价且安全的环境。",
+                s7_i1_t: "最后一英里控制", s7_i1_d: "自动屏蔽屏幕上的个人数据。防止通过屏幕截图泄露。",
+                s7_i2_t: "安全存储", s7_i2_d: "仅允许在加密区域保存。阻止本地下载和 USB 传输。",
+                s7_i3_t: "SaaS 账户控制", s7_i3_d: "仅允许使用公司账户登录。消除向个人账户上传数据。",
+                s8_title: "投资回报率 457%：在日元疲软环境中最大化", s8_content: "财务指标<br>・3 年投资回报率：<span class='number-secondary'>457%</span><br>・投资回收期：<span class='number-secondary'>4 个月</span><br><br>・成本削减：6.34 亿日元<br>・Island 投资：1.13 亿日元<br>・净利润 (NPV)：<span class='number-primary'>5.21 亿日元</span>",
+                s9_title: "隐藏成本：数据泄露的代价", s9_content: "数据泄露的平均估计成本：约 <span class='number-alert'>7.65 亿日元</span>",
+                s10_title: "2026 年人工智能革命", s10_content: "情境感知人工智能护栏：实时审计和编辑。敏感信息自动替换为安全变量。<br>业务影响：每年约 <span class='number-primary'>12 亿日元</span>。",
+                s11_title: "全球扩张的条件：数据主权", s11_content: "通过地理围栏实现自动合规。浏览器识别位置并强制执行区域访问控制。",
+                s12_title: "为后量子时代做好准备：自动生成 CBOM", s12_content: "Island（自动）：<span class='number-primary'>2 周</span> / <span class='number-primary'>0 日元</span>（标准功能）/ 始终保持最新",
+                s13_title: "实施过程：零风险启动", s13_content: "1. PoC：<span class='safe-zone'>免费试用当天开始。保留现有 VDI。</span><br><br>2. 混合：扩展到高度敏感的操作。<br><br>3. 取消 VDI：停止 VDI 续订。",
+                s14_title: "最终投资比较", s14_content: "【现状】与【Island】<br>・3 年总拥有成本：<span class='number-alert'>5.88 亿日元</span> vs <span class='number-secondary'>1.13 亿日元</span><br>・人工智能利用：禁止 vs 全公司范围<br>・安全性：无防御 vs <span class='number-secondary'>85%</span> 降低<br>・投资回报率：负 vs <span class='number-secondary'>+457%</span>",
+                s15_title: "后续步骤：今天可以开始做什么", s15_content: "<span class='safe-zone'>・开始为期 30 天的免费 PoC</span><br>・创建详细的投资回报率比较表",
+                s16_title: "联系信息", s16_content: "分析与监督：2026 年 1 月 11 日"
+            },
+            ko: { // Korean
+                meta_title: "Island.io 경영진 브리핑", chat_title: "Island 전략 어시스턴트", chat_placeholder: "프레젠테이션에 관해 질문해 주세요.",
+                s1_title: "IT 예산을 방어적 고정 비용에서 공격적 성장 투자로 전환", s1_content: "Island.io 경영진 브리핑 [2026년 1월 개정판: USD/JPY 156.80]<br>대상: CEO, CFO, CIO, CISO, CDAO<br>2026년 1월 11일",
+                s2_title: "요약", s2_content: "・연간 <span class='number-secondary'>1억 6,500만 엔</span>의 비용 절감과 <span class='number-secondary'>4개월</span>의 투자 회수 기간 달성.<br>・3년간 <span class='number-secondary'>457%</span>의 ROI와 약 5억 2,000만 엔의 순이익 예상.<br>・데이터 유출 위험 <span class='number-secondary'>85%</span> 감소 및 환율 변동 위험 제거.<br>・AI를 통해 연간 <span class='number-primary'>12억 엔</span>의 생산성 향상에 기여.",
+                s3_title: "의제: 2026년 경영 과제 및 해결책", s3_content: "1. 엔화 약세 및 가격 인상<br>2. VDI의 한계<br>3. Island.io: 보안 작업 공간<br>4. ROI 457%<br>5. AI 혁명<br>6. 데이터 주권<br>7. 포스트 퀀텀 준비<br>8. 다음 단계",
+                s4_title: "엔화 약세와 가격 인상의 이중고", s4_content: "경계 방어 및 VDI에 대한 투자는 환율의 직접적인 영향을 받아 연간 약 <span class='number-alert'>2억 6,000만 엔</span>에 이릅니다.<br><br>총액: 약 <span class='number-alert'>2억 5,700만 엔</span><br>・VDI: 1억 9,600만 엔 (76%)<br>・SASE: 4,700만 엔 (18%)<br>・방화벽/VPN: 1,400만 엔 (6%)",
+                s5_title: "투자와 위험의 치명적인 불일치", s5_content: "실제 데이터 유출의 <span class='number-alert'>83%</span>가 값비싼 네트워크 방어를 우회하여 웹 브라우저를 통해 발생합니다.<br><br>・네트워크: 투자 6,100만 엔 / 유출률 17%<br>・VDI: 투자 1억 9,600만 엔 / 유출률 0%<br>・브라우저: 투자 0 엔 / 유출률 <span class='number-alert'>83%</span>",
+                s6_title: "VDI: 지속 불가능한 '부채'", s6_content: "VDI 비용 분석 (3년 / 1,000명 사용자)<br>・라이선스: 연간 9,800만 엔 (3년: 2억 9,400만)<br>・인프라: 연간 7,800만 엔 (3년: 2억 3,400만)<br>・운영: 연간 2,000만 엔 (3년: 6,000만)<br>총계: <span class='number-alert'>연간 1억 9,600만 엔</span> (3년: 5억 8,800만 엔)",
+                s7_title: "Island.io: 브라우저를 보안 작업 공간으로", s7_sub: "화면 전송(VDI)에서 브라우저 관리로. 무겁고 비싼 시스템을 버리고 가볍고 저렴하며 안전한 환경을 채택합니다.",
+                s7_i1_t: "라스트 마일 제어", s7_i1_d: "화면의 개인 데이터 자동 마스킹. 스크린샷을 통한 유출 방지.",
+                s7_i2_t: "안전한 저장", s7_i2_d: "암호화된 영역에만 저장 허용. 로컬 다운로드 및 USB 전송 차단.",
+                s7_i3_t: "SaaS 계정 제어", s7_i3_d: "회사 계정으로만 로그인 허용. 개인 계정으로의 데이터 업로드 제거.",
+                s8_title: "ROI 457%: 엔화 약세 환경에서 극대화", s8_content: "재무 지표<br>・3년 ROI: <span class='number-secondary'>457%</span><br>・투자 회수 기간: <span class='number-secondary'>4개월</span><br><br>・비용 절감: 6억 3,400만 엔<br>・Island 투자: 1억 1,300만 엔<br>・순이익(NPV): <span class='number-primary'>5억 2,100만 엔</span>",
+                s9_title: "숨겨진 비용: 데이터 유출의 대가", s9_content: "데이터 유출의 평균 예상 비용: 약 <span class='number-alert'>7억 6,500만 엔</span>",
+                s10_title: "2026년 AI 혁명", s10_content: "상황 인식 AI 가드레일: 실시간 감사 및 수정. 민감한 정보는 자동으로 보안 변수로 대체됩니다.<br>비즈니스 영향: 연간 약 <span class='number-primary'>12억 엔</span>.",
+                s11_title: "글로벌 확장의 조건: 데이터 주권", s11_content: "지오펜싱을 통한 자동 준수. 브라우저는 위치를 인식하고 지역 액세스 제어를 시행합니다.",
+                s12_title: "포스트 퀀텀 시대를 위한 준비: 자동 CBOM", s12_content: "Island(자동): <span class='number-primary'>2주</span> / <span class='number-primary'>0 엔</span> (표준 기능) / 항상 최신 상태",
+                s13_title: "구현 프로세스: 제로 리스크로 시작", s13_content: "1. PoC: <span class='safe-zone'>무료 평가판 당일 시작. 기존 VDI 유지.</span><br><br>2. 하이브리드: 매우 민감한 운영으로 확장.<br><br>3. VDI 취소: VDI 갱신 중단.",
+                s14_title: "최종 투자 비교", s14_content: "[현상 유지] 대 [Island]<br>・3년 총소유비용: <span class='number-alert'>5억 8,800만 엔</span> 대 <span class='number-secondary'>1억 1,300만 엔</span><br>・AI 활용: 금지 대 전사적<br>・보안: 무방비 대 <span class='number-secondary'>85%</span> 감소<br>・ROI: 마이너스 대 <span class='number-secondary'>+457%</span>",
+                s15_title: "다음 단계: 오늘 시작할 수 있는 것", s15_content: "<span class='safe-zone'>・30일 무료 PoC 시작</span><br>・상세 ROI 비교 시트 작성",
+                s16_title: "연락처 정보", s16_content: "분석 및 감독: 2026년 1월 11일"
+            },
+            fr: { // French
+                meta_title: "Briefing Exécutif Island.io", chat_title: "Assistant Stratégique Island", chat_placeholder: "Veuillez poser toutes vos questions concernant la présentation.",
+                s1_title: "Transformer le Budget Informatique de Coûts Fixes Défensifs en Investissements de Croissance Offensifs", s1_content: "Briefing Exécutif Island.io [Révision Jan 2026 : USD/JPY 156.80]<br>Cible : PDG, DAF, DSI, RSSI, DADO<br>11 janvier 2026",
+                s2_title: "Résumé Exécutif", s2_content: "・Réalisez une réduction des coûts annuelle de <span class='number-secondary'>165 millions JPY</span> et un délai de récupération de <span class='number-secondary'>4 mois</span>.<br>・ROI projeté de <span class='number-secondary'>457%</span> et un bénéfice net d'environ 520 millions JPY sur 3 ans.<br>・Réduisez le risque de violation de données de <span class='number-secondary'>85%</span> et éliminez les risques de fluctuation des taux de change.<br>・Contribuez à une augmentation de la productivité annuelle de <span class='number-primary'>1,2 milliard JPY</span> via l'IA.",
+                s3_title: "Ordre du jour : Défis de Gestion 2026 et Solutions", s3_content: "1. Yen faible et hausses de prix<br>2. Limites du VDI<br>3. Island.io : Espace de travail sécurisé<br>4. ROI 457%<br>5. Révolution de l'IA<br>6. Souveraineté des données<br>7. Préparation post-quantique<br>8. Prochaines étapes",
+                s4_title: "Le Double Fardeau du Yen Faible et des Hausses de Prix", s4_content: "Les investissements dans la défense du périmètre et le VDI sont directement impactés par les taux de change, atteignant environ <span class='number-alert'>260 millions JPY</span> par an.<br><br>Total : Environ <span class='number-alert'>257 millions JPY</span><br>・VDI : 196 millions JPY (76%)<br>・SASE : 47 millions JPY (18%)<br>・FW / VPN : 14 millions JPY (6%)",
+                s5_title: "Inadéquation Fatale Entre Investissement et Risque", s5_content: "<span class='number-alert'>83%</span> des violations de données réelles contournent les défenses réseau coûteuses et se produisent via le navigateur Web.<br><br>・Réseau : Investissement 61 millions JPY / Taux de violation 17%<br>・VDI : Investissement 196 millions JPY / Taux de violation 0%<br>・Navigateur : Investissement 0 JPY / Taux de violation <span class='number-alert'>83%</span>",
+                s6_title: "VDI : une 'dette' insoutenable", s6_content: "Répartition des coûts VDI (3 ans / 1 000 utilisateurs)<br>・Licence : 98 millions JPY/an (3 ans : 294 millions)<br>・Infrastructure : 78 millions JPY/an (3 ans : 234 millions)<br>・Opérations : 20 millions JPY/an (3 ans : 60 millions)<br>Total : <span class='number-alert'>196 millions JPY/an</span> (3 ans : 588 millions JPY)",
+                s7_title: "Island.io : Le Navigateur comme Espace de Travail Sécurisé", s7_sub: "Du transfert d'écran (VDI) à la gestion du navigateur. Abandonnez les systèmes lourds/coûteux pour un environnement léger, bon marché et sécurisé.",
+                s7_i1_t: "Contrôle du Dernier Kilomètre", s7_i1_d: "Masquage automatique des données personnelles à l'écran. Empêche les fuites par captures d'écran.",
+                s7_i2_t: "Stockage Sécurisé", s7_i2_d: "Enregistrement autorisé uniquement dans les zones cryptées. Bloque les téléchargements locaux et les transferts USB.",
+                s7_i3_t: "Contrôle des Comptes SaaS", s7_i3_d: "Connexion autorisée uniquement avec les comptes d'entreprise. Élimine les téléversements de données vers des comptes personnels.",
+                s8_title: "ROI 457% : Maximisé dans un Environnement de Yen Faible", s8_content: "Métriques Financières<br>・ROI sur 3 ans : <span class='number-secondary'>457%</span><br>・Délai de récupération : <span class='number-secondary'>4 mois</span><br><br>・Réduction des coûts : 634 millions JPY<br>・Investissement Island : 113 millions JPY<br>・Bénéfice Net (VAN) : <span class='number-primary'>521 millions JPY</span>",
+                s9_title: "Coûts Cachés : Le Prix des Violations de Données", s9_content: "Coût moyen estimé d'une violation de données : Environ <span class='number-alert'>765 millions JPY</span>",
+                s10_title: "La Révolution de l'IA de 2026", s10_content: "Garde-fous IA sensibles au contexte : Audit et rédaction en temps réel. Les informations sensibles sont automatiquement remplacées par des variables sécurisées.<br>Impact commercial : Environ <span class='number-primary'>1,2 milliard JPY</span> par an.",
+                s11_title: "Condition pour l'Expansion Mondiale : Souveraineté des Données", s11_content: "Conformité automatisée via le Géo-Repérage. Le navigateur reconnaît l'emplacement et applique les contrôles d'accès régionaux.",
+                s12_title: "Préparation pour l'Ère Post-Quantique : CBOM Automatisé", s12_content: "Island (Automatisé) : <span class='number-primary'>2 semaines</span> / <span class='number-primary'>0 JPY</span> (Fonctionnalité standard) / Toujours à jour",
+                s13_title: "Processus de Mise en Œuvre : Démarrer sans Risque", s13_content: "1. PoC : <span class='safe-zone'>L'essai gratuit commence le jour même. Le VDI existant est maintenu.</span><br><br>2. Hybride : Étendre aux opérations très sensibles.<br><br>3. Annuler le VDI : Arrêter le renouvellement du VDI.",
+                s14_title: "Comparaison Finale des Investissements", s14_content: "[Statu Quo] vs [Island]<br>・TCO sur 3 ans : <span class='number-alert'>588 millions JPY</span> vs <span class='number-secondary'>113 millions JPY</span><br>・Utilisation de l'IA : Interdite vs à l'échelle de l'entreprise<br>・Sécurité : Sans défense vs réduction de <span class='number-secondary'>85%</span><br>・ROI : Négatif vs <span class='number-secondary'>+457%</span>",
+                s15_title: "Prochaines Étapes : Ce que Vous Pouvez Commencer Aujourd'hui", s15_content: "<span class='safe-zone'>・Démarrer un PoC gratuit de 30 jours</span><br>・Créer une feuille de comparaison détaillée du ROI",
+                s16_title: "Coordonnées", s16_content: "Analyse et Supervision : 11 janvier 2026"
+            },
+            ru: { // Russian
+                meta_title: "Обзор для руководства Island.io", chat_title: "Стратегический помощник Island", chat_placeholder: "Задайте любые вопросы по презентации.",
+                s1_title: "Трансформация ИТ-бюджета из защитных постоянных затрат в наступательные инвестиции в рост", s1_content: "Обзор для руководства Island.io [Редакция от января 2026 г.: USD/JPY 156.80]<br>Целевая аудитория: CEO, CFO, CIO, CISO, CDAO<br>11 января 2026 г.",
+                s2_title: "Резюме для руководства", s2_content: "・Достижение ежегодного сокращения затрат на <span class='number-secondary'>165 млн иен</span> и срока окупаемости <span class='number-secondary'>4 месяца</span>.<br>・Прогнозируемый ROI <span class='number-secondary'>457%</span> и чистая прибыль около 520 млн иен за 3 года.<br>・Снижение риска утечки данных на <span class='number-secondary'>85%</span> и устранение рисков колебания валютных курсов.<br>・Вклад в ежегодное повышение производительности на <span class='number-primary'>1,2 млрд иен</span> за счет ИИ.",
+                s3_title: "Повестка дня: Управленческие вызовы и решения 2026 года", s3_content: "1. Слабая иена и повышение цен<br>2. Ограничения VDI<br>3. Island.io: Безопасное рабочее пространство<br>4. ROI 457%<br>5. Революция ИИ<br>6. Суверенитет данных<br>7. Готовность к постквантовой эре<br>8. Следующие шаги",
+                s4_title: "Двойное бремя слабой иены и повышения цен", s4_content: "Инвестиции в защиту периметра и VDI напрямую зависят от обменных курсов, достигая примерно <span class='number-alert'>260 млн иен</span> в год.<br><br>Всего: примерно <span class='number-alert'>257 млн иен</span><br>・VDI: 196 млн иен (76%)<br>・SASE: 47 млн иен (18%)<br>・FW / VPN: 14 млн иен (6%)",
+                s5_title: "Фатальное несоответствие между инвестициями и риском", s5_content: "<span class='number-alert'>83%</span> фактических утечек данных обходят дорогостоящие средства защиты сети и происходят через веб-браузер.<br><br>・Сеть: Инвестиции 61 млн иен / Уровень утечек 17%<br>・VDI: Инвестиции 196 млн иен / Уровень утечек 0%<br>・Браузер: Инвестиции 0 иен / Уровень утечек <span class='number-alert'>83%</span>",
+                s6_title: "VDI: Неустойчивый 'долг'", s6_content: "Структура затрат на VDI (3 года / 1000 пользователей)<br>・Лицензия: 98 млн иен/год (3 года: 294 млн)<br>・Инфраструктура: 78 млн иен/год (3 года: 234 млн)<br>・Эксплуатация: 20 млн иен/год (3 года: 60 млн)<br>Итого: <span class='number-alert'>196 млн иен/год</span> (3 года: 588 млн иен)",
+                s7_title: "Island.io: Браузер как безопасное рабочее пространство", s7_sub: "От передачи экрана (VDI) к управлению браузером. Откажитесь от тяжелых/дорогих систем в пользу легкой, дешевой и безопасной среды.",
+                s7_i1_t: "Контроль последней мили", s7_i1_d: "Автоматическое маскирование персональных данных на экране. Предотвращает утечки через скриншоты.",
+                s7_i2_t: "Безопасное хранение", s7_i2_d: "Сохранение разрешено только в зашифрованных областях. Блокирует локальные загрузки и передачу через USB.",
+                s7_i3_t: "Контроль учетных записей SaaS", s7_i3_d: "Вход разрешен только с корпоративных учетных записей. Исключает выгрузку данных в личные аккаунты.",
+                s8_title: "ROI 457%: Максимизация в условиях слабой иены", s8_content: "Финансовые показатели<br>・ROI за 3 года: <span class='number-secondary'>457%</span><br>・Срок окупаемости: <span class='number-secondary'>4 месяца</span><br><br>・Сокращение затрат: 634 млн иен<br>・Инвестиции в Island: 113 млн иен<br>・Чистая прибыль (NPV): <span class='number-primary'>521 млн иен</span>",
+                s9_title: "Скрытые затраты: Цена утечки данных", s9_content: "Ориентировочная средняя стоимость утечки данных: примерно <span class='number-alert'>765 млн иен</span>",
+                s10_title: "Революция ИИ 2026 года", s10_content: "Контекстно-зависимые средства защиты ИИ: Аудит и редактирование в реальном времени. Конфиденциальная информация автоматически заменяется безопасными переменными.<br>Влияние на бизнес: примерно <span class='number-primary'>1,2 млрд иен</span> в год.",
+                s11_title: "Условие для глобальной экспансии: Суверенитет данных", s11_content: "Автоматизированное соответствие требованиям с помощью гео-ограждения. Браузер распознает местоположение и применяет региональные средства контроля доступа.",
+                s12_title: "Готовность к постквантовой эре: Автоматизированный CBOM", s12_content: "Island (Автоматизировано): <span class='number-primary'>2 недели</span> / <span class='number-primary'>0 иен</span> (стандартная функция) / Всегда актуально",
+                s13_title: "Процесс внедрения: Начните с нулевым риском", s13_content: "1. PoC: <span class='safe-zone'>Бесплатная пробная версия начинается в тот же день. Существующий VDI сохраняется.</span><br><br>2. Гибрид: Расширение на особо важные операции.<br><br>3. Отмена VDI: Прекращение продления VDI.",
+                s14_title: "Окончательное сравнение инвестиций", s14_content: "[Статус-кво] vs [Island]<br>・Общая стоимость владения за 3 года: <span class='number-alert'>588 млн иен</span> vs <span class='number-secondary'>113 млн иен</span><br>・Использование ИИ: Запрещено vs В масштабах всей компании<br>・Безопасность: Беззащитность vs снижение на <span class='number-secondary'>85%</span><br>・ROI: Отрицательный vs <span class='number-secondary'>+457%</span>",
+                s15_title: "Следующие шаги: Что можно начать сегодня", s15_content: "<span class='safe-zone'>・Начать 30-дневный бесплатный PoC</span><br>・Создать подробный лист сравнения ROI",
+                s16_title: "Контактная информация", s16_content: "Анализ и контроль: 11 января 2026 г."
+            },
+            de: { // German
+                meta_title: "Island.io Executive Briefing", chat_title: "Island Strategischer Assistent", chat_placeholder: "Bitte stellen Sie Fragen zur Präsentation.",
+                s1_title: "Umwandlung des IT-Budgets von defensiven Fixkosten in offensive Wachstumsinvestitionen", s1_content: "Island.io Executive Briefing [Jan 2026 Revision: USD/JPY 156.80]<br>Zielgruppe: CEO, CFO, CIO, CISO, CDAO<br>11. Januar 2026",
+                s2_title: "Zusammenfassung für die Geschäftsleitung", s2_content: "・Erreichen Sie eine jährliche Kostensenkung von <span class='number-secondary'>165 Mio. JPY</span> und eine Amortisationszeit von <span class='number-secondary'>4 Monaten</span>.<br>・Prognostizierter ROI von <span class='number-secondary'>457%</span> und ein Nettogewinn von ca. 520 Mio. JPY über 3 Jahre.<br>・Reduzieren Sie das Risiko von Datenschutzverletzungen um <span class='number-secondary'>85%</span> und eliminieren Sie Wechselkursschwankungsrisiken.<br>・Tragen Sie durch KI zu einer jährlichen Produktivitätssteigerung von <span class='number-primary'>1,2 Mrd. JPY</span> bei.",
+                s3_title: "Agenda: Management-Herausforderungen & Lösungen 2026", s3_content: "1. Schwacher Yen und Preiserhöhungen<br>2. Grenzen von VDI<br>3. Island.io: Sicherer Arbeitsbereich<br>4. ROI 457%<br>5. KI-Revolution<br>6. Datensouveränität<br>7. Post-Quantum-Bereitschaft<br>8. Nächste Schritte",
+                s4_title: "Die doppelte Belastung durch schwachen Yen und Preiserhöhungen", s4_content: "Investitionen in Perimeterschutz und VDI sind direkt von Wechselkursen betroffen und erreichen jährlich ca. <span class='number-alert'>260 Mio. JPY</span>.<br><br>Gesamt: Ca. <span class='number-alert'>257 Mio. JPY</span><br>・VDI: 196 Mio. JPY (76%)<br>・SASE: 47 Mio. JPY (18%)<br>・FW / VPN: 14 Mio. JPY (6%)",
+                s5_title: "Fatales Missverhältnis zwischen Investition und Risiko", s5_content: "<span class='number-alert'>83%</span> der tatsächlichen Datenschutzverletzungen umgehen teure Netzwerkschutzmaßnahmen und erfolgen über den Webbrowser.<br><br>・Netzwerk: Investition 61 Mio. JPY / Verletzungsrate 17%<br>・VDI: Investition 196 Mio. JPY / Verletzungsrate 0%<br>・Browser: Investition 0 JPY / Verletzungsrate <span class='number-alert'>83%</span>",
+                s6_title: "VDI: Eine unhaltbare 'Schuld'", s6_content: "VDI-Kostenaufschlüsselung (3 Jahre / 1.000 Benutzer)<br>・Lizenz: 98 Mio. JPY/Jahr (3 Jahre: 294 Mio.)<br>・Infrastruktur: 78 Mio. JPY/Jahr (3 Jahre: 234 Mio.)<br>・Betrieb: 20 Mio. JPY/Jahr (3 Jahre: 60 Mio.)<br>Gesamt: <span class='number-alert'>196 Mio. JPY/Jahr</span> (3 Jahre: 588 Mio. JPY)",
+                s7_title: "Island.io: Der Browser als sicherer Arbeitsbereich", s7_sub: "Von der Bildschirmübertragung (VDI) zur Browser-Verwaltung. Verzichten Sie auf schwere/teure Systeme zugunsten einer leichten, günstigen und sicheren Umgebung.",
+                s7_i1_t: "Last Mile Control", s7_i1_d: "Automatisches Maskieren von persönlichen Daten auf dem Bildschirm. Verhindert Lecks durch Screenshots.",
+                s7_i2_t: "Sichere Speicherung", s7_i2_d: "Speichern nur in verschlüsselten Bereichen erlaubt. Blockiert lokale Downloads und USB-Übertragungen.",
+                s7_i3_t: "SaaS-Kontensteuerung", s7_i3_d: "Anmeldung nur mit Firmenkonten erlaubt. Verhindert das Hochladen von Daten auf persönliche Konten.",
+                s8_title: "ROI 457%: Maximiert in einem Umfeld mit schwachem Yen", s8_content: "Finanzkennzahlen<br>・3-Jahres-ROI: <span class='number-secondary'>457%</span><br>・Amortisationszeit: <span class='number-secondary'>4 Monate</span><br><br>・Kosteneinsparung: 634 Mio. JPY<br>・Island-Investition: 113 Mio. JPY<br>・Nettogewinn (NPV): <span class='number-primary'>521 Mio. JPY</span>",
+                s9_title: "Versteckte Kosten: Der Preis von Datenschutzverletzungen", s9_content: "Geschätzte durchschnittliche Kosten einer Datenschutzverletzung: Ca. <span class='number-alert'>765 Mio. JPY</span>",
+                s10_title: "Die KI-Revolution 2026", s10_content: "Kontextsensitive KI-Leitplanken: Echtzeit-Auditing und -Schwärzung. Sensible Informationen werden automatisch durch sichere Variablen ersetzt.<br>Geschäftsauswirkungen: Ca. <span class='number-primary'>1,2 Mrd. JPY</span> jährlich.",
+                s11_title: "Bedingung für die globale Expansion: Datensouveränität", s11_content: "Automatisierte Compliance durch Geo-Fencing. Der Browser erkennt den Standort und setzt regionale Zugriffskontrollen durch.",
+                s12_title: "Bereitschaft für die Post-Quantum-Ära: Automatisierte CBOM", s12_content: "Island (automatisiert): <span class='number-primary'>2 Wochen</span> / <span class='number-primary'>0 JPY</span> (Standardfunktion) / Immer aktuell",
+                s13_title: "Implementierungsprozess: Start ohne Risiko", s13_content: "1. PoC: <span class='safe-zone'>Kostenlose Testversion startet am selben Tag. Bestehendes VDI wird beibehalten.</span><br><br>2. Hybrid: Ausweitung auf hochsensible Vorgänge.<br><br>3. VDI kündigen: VDI-Erneuerung stoppen.",
+                s14_title: "Abschließender Investitionsvergleich", s14_content: "[Status Quo] vs. [Island]<br>・3-Jahres-TCO: <span class='number-alert'>588 Mio. JPY</span> vs. <span class='number-secondary'>113 Mio. JPY</span><br>・KI-Nutzung: Verboten vs. unternehmensweit<br>・Sicherheit: Schutzlos vs. <span class='number-secondary'>85%</span> Reduzierung<br>・ROI: Negativ vs. <span class='number-secondary'>+457%</span>",
+                s15_title: "Nächste Schritte: Was Sie heute beginnen können", s15_content: "<span class='safe-zone'>・Starten Sie einen 30-tägigen kostenlosen PoC</span><br>・Erstellen Sie ein detailliertes ROI-Vergleichsblatt",
+                s16_title: "Kontaktinformationen", s16_content: "Analyse & Überwachung: 11. Januar 2026"
+            },
+            it: { // Italian
+                meta_title: "Briefing Esecutivo Island.io", chat_title: "Assistente Strategico Island", chat_placeholder: "Si prega di porre qualsiasi domanda riguardante la presentazione.",
+                s1_title: "Trasformare il Budget IT da Costi Fissi Difensivi a Investimenti di Crescita Offensivi", s1_content: "Briefing Esecutivo Island.io [Revisione Gen 2026: USD/JPY 156.80]<br>Target: CEO, CFO, CIO, CISO, CDAO<br>11 gennaio 2026",
+                s2_title: "Sommario Esecutivo", s2_content: "・Ottenere una riduzione dei costi annuale di <span class='number-secondary'>165 milioni di JPY</span> e un periodo di ammortamento di <span class='number-secondary'>4 mesi</span>.<br>・ROI previsto del <span class='number-secondary'>457%</span> e un utile netto di circa 520 milioni di JPY in 3 anni.<br>・Ridurre il rischio di violazione dei dati dell'<span class='number-secondary'>85%</span> ed eliminare i rischi di fluttuazione del tasso di cambio.<br>・Contribuire a un aumento della produttività annuale di <span class='number-primary'>1,2 miliardi di JPY</span> tramite l'IA.",
+                s3_title: "Agenda: Sfide e Soluzioni di Gestione 2026", s3_content: "1. Yen debole e aumenti di prezzo<br>2. Limiti della VDI<br>3. Island.io: Spazio di Lavoro Sicuro<br>4. ROI 457%<br>5. Rivoluzione IA<br>6. Sovranità dei dati<br>7. Prontezza Post-Quantistica<br>8. Prossimi Passi",
+                s4_title: "Il Doppio Fardello dello Yen Debole e degli Aumenti di Prezzo", s4_content: "Gli investimenti nella difesa perimetrale e nella VDI sono direttamente influenzati dai tassi di cambio, raggiungendo circa <span class='number-alert'>260 milioni di JPY</span> all'anno.<br><br>Totale: Circa <span class='number-alert'>257 milioni di JPY</span><br>・VDI: 196 milioni di JPY (76%)<br>・SASE: 47 milioni di JPY (18%)<br>・FW / VPN: 14 milioni di JPY (6%)",
+                s5_title: "Disallineamento Fatale tra Investimento e Rischio", s5_content: "L'<span class='number-alert'>83%</span> delle violazioni di dati effettive aggira le costose difese di rete e si verifica tramite il browser web.<br><br>・Rete: Investimento 61 milioni di JPY / Tasso di violazione 17%<br>・VDI: Investimento 196 milioni di JPY / Tasso di violazione 0%<br>・Browser: Investimento 0 JPY / Tasso di violazione <span class='number-alert'>83%</span>",
+                s6_title: "VDI: un 'debito' insostenibile", s6_content: "Ripartizione dei costi VDI (3 anni / 1.000 utenti)<br>・Licenza: 98 milioni di JPY/anno (3 anni: 294 milioni)<br>・Infrastruttura: 78 milioni di JPY/anno (3 anni: 234 milioni)<br>・Operazioni: 20 milioni di JPY/anno (3 anni: 60 milioni)<br>Totale: <span class='number-alert'>196 milioni di JPY/anno</span> (3 anni: 588 milioni di JPY)",
+                s7_title: "Island.io: Il Browser come Spazio di Lavoro Sicuro", s7_sub: "Dal trasferimento dello schermo (VDI) alla gestione del browser. Abbandona i sistemi pesanti/costosi per un ambiente leggero, economico e sicuro.",
+                s7_i1_t: "Controllo dell'Ultimo Miglio", s7_i1_d: "Mascheramento automatico dei dati personali sullo schermo. Previene le fughe di notizie tramite screenshot.",
+                s7_i2_t: "Archiviazione Sicura", s7_i2_d: "Salvataggio consentito solo in aree crittografate. Blocca i download locali e i trasferimenti USB.",
+                s7_i3_t: "Controllo Account SaaS", s7_i3_d: "Accesso consentito solo con account aziendali. Elimina il caricamento di dati su account personali.",
+                s8_title: "ROI 457%: Massimizzato in un Ambiente di Yen Debole", s8_content: "Metriche Finanziarie<br>・ROI a 3 anni: <span class='number-secondary'>457%</span><br>・Periodo di ammortamento: <span class='number-secondary'>4 mesi</span><br><br>・Riduzione dei costi: 634 milioni di JPY<br>・Investimento Island: 113 milioni di JPY<br>・Utile Netto (VAN): <span class='number-primary'>521 milioni di JPY</span>",
+                s9_title: "Costi Nascosti: Il Prezzo delle Violazioni dei Dati", s9_content: "Costo medio stimato di una violazione dei dati: Circa <span class='number-alert'>765 milioni di JPY</span>",
+                s10_title: "La Rivoluzione IA del 2026", s10_content: "Guardrail IA sensibili al contesto: auditing e redazione in tempo reale. Le informazioni sensibili vengono automaticamente sostituite con variabili sicure.<br>Impatto sul business: Circa <span class='number-primary'>1,2 miliardi di JPY</span> all'anno.",
+                s11_title: "Condizione per l'Espansione Globale: Sovranità dei Dati", s11_content: "Conformità automatizzata tramite Geo-Fencing. Il browser riconosce la posizione e applica i controlli di accesso regionali.",
+                s12_title: "Prontezza per l'Era Post-Quantistica: CBOM Automatizzato", s12_content: "Island (Automatizzato): <span class='number-primary'>2 settimane</span> / <span class='number-primary'>0 JPY</span> (funzione standard) / Sempre aggiornato",
+                s13_title: "Processo di Implementazione: Inizia a Rischio Zero", s13_content: "1. PoC: <span class='safe-zone'>La prova gratuita inizia lo stesso giorno. La VDI esistente viene mantenuta.</span><br><br>2. Ibrido: estendere alle operazioni altamente sensibili.<br><br>3. Annulla VDI: interrompi il rinnovo della VDI.",
+                s14_title: "Confronto Finale degli Investimenti", s14_content: "[Status Quo] vs [Isola]<br>・TCO a 3 anni: <span class='number-alert'>588 milioni di JPY</span> vs <span class='number-secondary'>113 milioni di JPY</span><br>・Utilizzo dell'IA: Proibito vs A livello aziendale<br>・Sicurezza: Indifeso vs Riduzione dell'<span class='number-secondary'>85%</span><br>・ROI: Negativo vs <span class='number-secondary'>+457%</span>",
+                s15_title: "Prossimi Passi: Cosa Puoi Iniziare Oggi", s15_content: "<span class='safe-zone'>・Inizia una PoC gratuita di 30 giorni</span><br>・Crea un foglio di confronto dettagliato del ROI",
+                s16_title: "Informazioni di Contatto", s16_content: "Analisi e Supervisione: 11 gennaio 2026"
+            },
         };
 
         const sliderContainer = document.getElementById('slider-container');
@@ -579,13 +789,26 @@
                     }
                 }
             });
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
+            
+            // ドロップダウンメニューの更新
+            const selectedLangText = document.getElementById('selected-lang-text');
+            const langButtons = document.querySelectorAll('.lang-btn');
+            
+            langButtons.forEach(btn => {
+                const btnLang = btn.dataset.lang;
+                const isActive = btnLang === lang;
+                btn.classList.toggle('active', isActive);
+                if (isActive) {
+                    selectedLangText.textContent = btn.textContent;
+                }
             });
         }
 
         document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => setLanguage(e.target.dataset.lang));
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage(e.target.dataset.lang);
+            });
         });
 
         const chatInput = document.getElementById('chatInput');
