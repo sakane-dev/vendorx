@@ -1,6 +1,9 @@
 [ README.md (日本語) ]
 
 # Island.io GTM Strategy - Executive Briefing
+
+https://pages.sakane.dev/gtm-strategy-2026/
+
 ## 多言語対応しました（2026.03.18）
 i18nの実装により、8か国語に対応しました（日本語、英語、中国語、韓国語、フランス語、ロシア語、ドイツ語、イタリア語）。
 
