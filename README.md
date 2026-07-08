@@ -2,6 +2,10 @@
 
 > Strategic IT Transformation: Exposing Financial Distortions and Driving Executive Paradigm Shift
 
+**🌐 Live Presentation:**
+[https://pages.sakane.dev/vendorx/](https://pages.sakane.dev/vendorx/)
+*(This `index.html` is deployed via GitHub Pages. Please access the URL above to view the actual interactive presentation.)*
+
 ## 1. Cognitive Science & Psychology Foundations
 
 The Japanese enterprise market is uniquely characterized by its extreme risk aversion and high hurdles for consensus building. Conquering this market requires more than simply presenting technical superiority or an ROI list; an **"interdisciplinary perspective (Technology × Cognitive Science × Behavioral Economics)"** is indispensable to hack the deep psychology of executives and the organizational habitus.
@@ -62,6 +66,10 @@ This presentation (SPA) is programmed with the following psychological mechanism
 # [Japanese] Vendor X: Presentation for Executive Management
 
 > Strategic IT Transformation: Exposing Financial Distortions and Driving Executive Paradigm Shift
+
+**🌐 プレゼンテーション（GitHub Pages 公開用URL）:**
+[https://pages.sakane.dev/vendorx/](https://pages.sakane.dev/vendorx/)
+*(本リポジトリの `index.html` はGitHub Pagesでホスティングされています。実際のプレゼンテーションをご覧になる場合は、上記URLにアクセスしてください。)*
 
 ## 1. Cognitive Science & Psychology Foundations（心理学・認知科学的基盤）
 
